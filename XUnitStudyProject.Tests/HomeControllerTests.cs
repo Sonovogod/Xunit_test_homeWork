@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using XUnitStudyProject.Controllers;
@@ -26,7 +26,7 @@ namespace XUnitStudyProject.Tests
         {
             HomeController controller = new HomeController();
             ViewResult result = controller.Privacy() as ViewResult;
-            Assert.Equal("Текст политики конфидециальности", result?.ViewData["Policy"]);
+            Assert.Contains("Текст политики конфидециальности", result?.ViewData["Policy"]);
             Assert.Equal("Privacy", result?.ViewName);
             Assert.True(result?.Model is null);
             Assert.EndsWith("сайта.", result?.ViewData["Policy"] as string);
