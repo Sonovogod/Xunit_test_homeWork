@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using XUnitStudyProject.Services;
@@ -20,7 +20,7 @@ namespace XUnitStudyProject.Tests
             Assert.Contains("0a7ac", hasher.ToHex(pwd));
             Assert.EndsWith("4b8b1", hasher.ToHex(pwd));
             Assert.Equal(32, hasher.ToHex(pwd).Length);
-            Assert.Equal('0', hasher.ToHex(pwd)[4]);
+            Assert.Equal('0', hasher.ToHex(pwd)[3]);
         }
     }
 }
