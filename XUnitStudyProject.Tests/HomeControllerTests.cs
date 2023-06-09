@@ -17,7 +17,7 @@ namespace XUnitStudyProject.Tests
             Assert.Equal(typeof(IndexViewModel), result.Model.GetType());
             Assert.NotNull(result.Model);
             Assert.Equal(200, result.StatusCode);
-            Assert.Equal("Добрый день, это тестовый текст на главной странице", result?.ViewData["Message"]);
+            Assert.Equal("Добрый день, это тестовый текст на главной странице", result?.ViewData["Message"] as string);
         }
         
         [Fact]
