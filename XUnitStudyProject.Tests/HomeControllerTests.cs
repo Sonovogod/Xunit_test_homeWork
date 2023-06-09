@@ -31,7 +31,5 @@ namespace XUnitStudyProject.Tests
             Assert.EndsWith("сайта.", result?.ViewData["Policy"] as string);
             Assert.Equal(39, (result?.ViewData["Policy"] as string).Length);
         }
- 
-        
     }
 }
