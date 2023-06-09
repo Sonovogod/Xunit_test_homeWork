@@ -26,7 +26,8 @@ namespace XUnitStudyProject.Tests
         {
             HomeController controller = new HomeController();
             ViewResult result = controller.Privacy() as ViewResult;
-            Assert.Contains("Текст политики конфидециальности", result?.ViewData["Policy"]);
+            Assert.Contains("Текст политики конфидециальности", result?.ViewData["Policy"].ToString());
+            Assert.Contains("sdsd", "sdsd");
             Assert.Equal("Privacy", result?.ViewName);
             Assert.True(result?.Model is null);
             Assert.EndsWith("сайта.", result?.ViewData["Policy"] as string);
