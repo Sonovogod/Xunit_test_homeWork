@@ -17,7 +17,8 @@ namespace XUnitStudyProject.Controllers
 
         public IActionResult Privacy()
         {
-            return View("Policy");
+            ViewData["Policy"] = "Текст политики конфидециальности сайта.";
+            return View("Privacy");
         }
 
         public IActionResult TestPage(int page)
