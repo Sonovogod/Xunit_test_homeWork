@@ -12,7 +12,10 @@ namespace XUnitStudyProject.Services
         /// <param name="password"></param>
         public byte[] Md5HashPassword(string password)
         {
-            return new byte[0];
+            byte[] bytes = Encoding.Default.GetBytes(password);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(bytes);
+            return md5.Hash;
         }
         /// <summary>
         /// Метод принимает в себя MD5 hash (массив байт)
@@ -21,7 +24,9 @@ namespace XUnitStudyProject.Services
         /// <returns>Возвращается значение хэша в hexCode</returns>
         public string ToHex(byte[] bytes)
         {
-            return String.Empty;
+            var result = BitConverter.ToString(bytes)
+                .Replace("-", "").ToLower();
+            return result;
         }
     }
 }
