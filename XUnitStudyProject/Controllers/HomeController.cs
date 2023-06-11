@@ -1,5 +1,4 @@
-﻿
-
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using XUnitStudyProject.Models;
 
@@ -9,7 +8,11 @@ namespace XUnitStudyProject.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            IndexViewModel model = new IndexViewModel();
+            ViewResult result = View("Main", model);
+            result.StatusCode = 200;
+            ViewData["Message"] = "Добрый день, это тестовый текст на главной странице";
+            return result;
         }
 
         public IActionResult Privacy()
