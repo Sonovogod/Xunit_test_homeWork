@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using XUnitStudyProject.Controllers;
+using XUnitStudyProject.Models;
 
 
 namespace XUnitStudyProject.Tests
@@ -30,6 +31,20 @@ namespace XUnitStudyProject.Tests
             Assert.True(result?.Model is null);
             Assert.EndsWith("сайта.", result?.ViewData["Policy"] as string);
             Assert.Equal(39, (result?.ViewData["Policy"] as string).Length);
+        }
+        
+        [Fact]
+        public void TestPage()
+        {
+            HomeController controller = new HomeController();
+            int page = 1;
+            ViewResult result = controller.TestPage(page) as ViewResult;
+            var viewModel = (TestPageViewModel)result.Model;
+            Assert.NotNull(result);
+            Assert.Equal(typeof(TestPageViewModel), result.Model.GetType());
+            Assert.NotNull(result.Model);
+            Assert.Equal(++page, controller.ViewBag.PageIncrement);
+            Assert.True(viewModel.Page > 0);
         }
     }
 }

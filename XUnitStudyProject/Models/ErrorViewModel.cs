@@ -1,5 +1,3 @@
-using System;
-
 namespace XUnitStudyProject.Models
 {
     public class ErrorViewModel
